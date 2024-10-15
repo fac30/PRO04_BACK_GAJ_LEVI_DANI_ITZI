@@ -1,0 +1,13 @@
+### dotenv ###
+.env
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Dependency directories
+node_modules/
+node_modules*
+jspm_packages
