@@ -1,6 +1,6 @@
 import DatabaseConstructor, { Database } from "better-sqlite3";
 
-const db: Database = new DatabaseConstructor("db.sqlite3");
+export const db: Database = new DatabaseConstructor("db.sqlite3");
 
 const query = `
     CREATE TABLE "artists" (
