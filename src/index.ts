@@ -1,6 +1,7 @@
 // src/index.ts
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
+import artistRoutes from "./routes/artistRoutes";
 
 dotenv.config();
 
@@ -14,3 +15,5 @@ app.get("/", (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
+ 
+app.use("/artists", artistRoutes);
