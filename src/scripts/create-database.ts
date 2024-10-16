@@ -8,6 +8,7 @@ const query = `
         "name" TEXT,
         "bio" TEXT,
         "socials" TEXT,
+        "image" TEXT,
         "creation_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
