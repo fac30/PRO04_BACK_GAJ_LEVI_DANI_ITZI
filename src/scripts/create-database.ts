@@ -110,6 +110,17 @@ const query = `
         FOREIGN KEY ("user_id") REFERENCES "users" ("id"),
         FOREIGN KEY ("product_id") REFERENCES "products" ("id")
     );
+
+    CREATE TABLE "product_images" (
+        "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+        "product_id" INTEGER NOT NULL,
+        "image_url" TEXT NOT NULL,
+        "is_main_image" BOOLEAN NOT NULL DEFAULT 0,
+        "creation_date" TIMESTAMP,
+        FOREIGN KEY ("product_id") REFERENCES "products" ("id")
+    );
+
+
 `;
 
 db.exec(query);
