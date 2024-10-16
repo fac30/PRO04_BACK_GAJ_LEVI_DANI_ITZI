@@ -1,0 +1,415 @@
+[
+  {
+    "product_id": 1,
+    "size": "XS",
+    "colour": null,
+    "price": 79.99,
+    "stock": 100
+  },
+  {
+    "product_id": 1,
+    "size": "S",
+    "colour": null,
+    "price": 79.99,
+    "stock": 100
+  },
+  {
+    "product_id": 1,
+    "size": "M",
+    "colour": null,
+    "price": 79.99,
+    "stock": 100
+  },
+  {
+    "product_id": 1,
+    "size": "L",
+    "colour": null,
+    "price": 79.99,
+    "stock": 100
+  },
+  {
+    "product_id": 1,
+    "size": "XL",
+    "colour": null,
+    "price": 79.99,
+    "stock": 100
+  },
+  {
+    "product_id": 1,
+    "size": "XL2",
+    "colour": null,
+    "price": 79.99,
+    "stock": 100
+  },
+  {
+    "product_id": 1,
+    "size": "XL3",
+    "colour": null,
+    "price": 79.99,
+    "stock": 100
+  },
+  {
+    "product_id": 2,
+    "size": "XS",
+    "colour": null,
+    "price": 65.99,
+    "stock": 50
+  },
+  {
+    "product_id": 2,
+    "size": "S",
+    "colour": null,
+    "price": 65.99,
+    "stock": 50
+  },
+  {
+    "product_id": 2,
+    "size": "M",
+    "colour": null,
+    "price": 65.99,
+    "stock": 50
+  },
+  {
+    "product_id": 2,
+    "size": "L",
+    "colour": null,
+    "price": 65.99,
+    "stock": 50
+  },
+  {
+    "product_id": 2,
+    "size": "XL",
+    "colour": null,
+    "price": 65.99,
+    "stock": 50
+  },
+  {
+    "product_id": 2,
+    "size": "XL2",
+    "colour": null,
+    "price": 65.99,
+    "stock": 50
+  },
+  {
+    "product_id": 2,
+    "size": "XL3",
+    "colour": null,
+    "price": 65.99,
+    "stock": 50
+  },
+  {
+    "product_id": 3,
+    "size": "XS",
+    "colour": null,
+    "price": 89.99,
+    "stock": 30
+  },
+  {
+    "product_id": 3,
+    "size": "S",
+    "colour": null,
+    "price": 89.99,
+    "stock": 30
+  },
+  {
+    "product_id": 3,
+    "size": "M",
+    "colour": null,
+    "price": 89.99,
+    "stock": 30
+  },
+  {
+    "product_id": 3,
+    "size": "L",
+    "colour": null,
+    "price": 89.99,
+    "stock": 30
+  },
+  {
+    "product_id": 3,
+    "size": "XL",
+    "colour": null,
+    "price": 89.99,
+    "stock": 30
+  },
+  {
+    "product_id": 3,
+    "size": "XL2",
+    "colour": null,
+    "price": 89.99,
+    "stock": 30
+  },
+  {
+    "product_id": 3,
+    "size": "XL3",
+    "colour": null,
+    "price": 89.99,
+    "stock": 30
+  },
+  {
+    "product_id": 4,
+    "size": "XS",
+    "colour": null,
+    "price": 49.99,
+    "stock": 20
+  },
+  {
+    "product_id": 4,
+    "size": "S",
+    "colour": null,
+    "price": 49.99,
+    "stock": 20
+  },
+  {
+    "product_id": 4,
+    "size": "M",
+    "colour": null,
+    "price": 49.99,
+    "stock": 20
+  },
+  {
+    "product_id": 4,
+    "size": "L",
+    "colour": null,
+    "price": 49.99,
+    "stock": 20
+  },
+  {
+    "product_id": 4,
+    "size": "XL",
+    "colour": null,
+    "price": 49.99,
+    "stock": 20
+  },
+  {
+    "product_id": 4,
+    "size": "XL2",
+    "colour": null,
+    "price": 49.99,
+    "stock": 20
+  },
+  {
+    "product_id": 4,
+    "size": "XL3",
+    "colour": null,
+    "price": 49.99,
+    "stock": 20
+  },
+  {
+    "product_id": 5,
+    "size": "XS",
+    "colour": "black",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "XS",
+    "colour": "white",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "S",
+    "colour": "black",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "S",
+    "colour": "white",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "M",
+    "colour": "black",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "M",
+    "colour": "white",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "L",
+    "colour": "black",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "L",
+    "colour": "white",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "XL",
+    "colour": "black",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "XL",
+    "colour": "white",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "2XL",
+    "colour": "black",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "2XL",
+    "colour": "white",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "3XL",
+    "colour": "black",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 5,
+    "size": "3XL",
+    "colour": "white",
+    "price": 29.99,
+    "stock": 150
+  },
+  {
+    "product_id": 6,
+    "size": null,
+    "colour": null,
+    "price": 15.99,
+    "stock": 200
+  },
+  {
+    "product_id": 7,
+    "size": null,
+    "colour": null,
+    "price": 25.99,
+    "stock": 120
+  },
+  {
+    "product_id": 8,
+    "size": null,
+    "colour": null,
+    "price": 19.99,
+    "stock": 180
+  },
+  {
+    "product_id": 9,
+    "size": null,
+    "colour": null,
+    "price": 45.99,
+    "stock": 75
+  },
+  {
+    "product_id": 10,
+    "size": null,
+    "colour": null,
+    "price": 32.99,
+    "stock": 40
+  },
+  {
+    "product_id": 11,
+    "size": null,
+    "colour": null,
+    "price": 12.99,
+    "stock": 250
+  },
+  {
+    "product_id": 12,
+    "size": null,
+    "colour": null,
+    "price": 17.99,
+    "stock": 160
+  },
+  {
+    "product_id": 13,
+    "size": null,
+    "colour": null,
+    "price": 22.99,
+    "stock": 130
+  },
+  {
+    "product_id": 14,
+    "size": null,
+    "colour": null,
+    "price": 29.99,
+    "stock": 90
+  },
+  {
+    "product_id": 15,
+    "size": null,
+    "colour": null,
+    "price": 34.99,
+    "stock": 70
+  },
+  {
+    "product_id": 16,
+    "size": "A6",
+    "colour": null,
+    "price": 12.99,
+    "stock": 200
+  },
+  {
+    "product_id": 16,
+    "size": "A7",
+    "colour": null,
+    "price": 12.99,
+    "stock": 200
+  },
+  {
+    "product_id": 16,
+    "size": "A8",
+    "colour": null,
+    "price": 12.99,
+    "stock": 200
+  },
+  {
+    "product_id": 16,
+    "size": "A9",
+    "colour": null,
+    "price": 12.99,
+    "stock": 200
+  },
+  {
+    "product_id": 16,
+    "size": "A10",
+    "colour": null,
+    "price": 12.99,
+    "stock": 200
+  },
+  {
+    "product_id": 16,
+    "size": "A2",
+    "colour": null,
+    "price": 12.99,
+    "stock": 200
+  },
+  {
+    "product_id": 16,
+    "size": "A3",
+    "colour": null,
+    "price": 12.99,
+    "stock": 200
+  }
+]
