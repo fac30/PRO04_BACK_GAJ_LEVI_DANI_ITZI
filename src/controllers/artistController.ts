@@ -19,3 +19,4 @@ export function getArtistById(req: Request, res: Response) {
 		res.status(404).json({ message: 'Artist not found' });
 	}
 }
+
