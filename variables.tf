@@ -1,5 +1,5 @@
 variable "region" {
-    default = "eu-west-2"
+  default = "eu-west-2"
 }
 
 variable "ami_id" {
@@ -8,4 +8,12 @@ variable "ami_id" {
 
 variable "instance_type" {
   default = "t2.micro"
+}
+
+variable "aws_security_group_name" {
+  default = "canvas_collective_security"
+}
+
+variable "aws_instance" {
+    default = "canvas_collective"
 }
