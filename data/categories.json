@@ -1,0 +1,22 @@
+[
+  {
+    "name": "t-shirts",
+    "description": "A variety of locally designed t-shirts made with 100% cotton, sustainably sourced, and environmentally friendly."
+  },
+  {
+    "name": "mugs",
+    "description": "Unique mugs featuring illustrations from local artists."
+  },
+  {
+    "name": "stationery",
+    "description": "Stationery items including notebooks, pens, and art supplies."
+  },
+  {
+    "name": "phone cases",
+    "description": "Creative and protective phone cases designed by local artists."
+  },
+  {
+    "name": "wall-art",
+    "description": "Posters, canvases, and prints to decorate your walls."
+  }
+]
