@@ -11,7 +11,7 @@ interface Artist {
 }
 
 fs.readFile(
-  "../../data/artists.json",
+  "data/artists.json",
   "utf8",
   (err: NodeJS.ErrnoException | null, data: string) => {
     if (err) {
