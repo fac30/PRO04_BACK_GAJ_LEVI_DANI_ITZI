@@ -15,19 +15,23 @@ fs.readFile('../../data/artists.json', 'utf8', (err, data)) => {
         console.error('Error reading JSON file:', err);
         return;
     }
-const artists: Artist[] = JSON.parse(data);
+const artistsData: Artist[] = JSON.parse(data);
 
 
 const insertArtistsData = db.prepare(
-  "INSERT INTO artists (name, bio, socials, image) VALUES (?, ?, ?)"
+  "INSERT INTO artists (name, bio, socials, image) VALUES (?, ?, ?, ?)"
 );
 
-artists.forEach((artist) => {
-  insertArtistsData.run(artist.name, artist.bio, artist.socials, artist.image, (insertErr) => {
-    if (insertErr) {
-        console.error('Error inserting artist:', insertErr);
+artistsData.forEach((artist) => {
+    insertArtistsData.run(artist.name, artist.bio, artist.socials, artist.image, (insertErr: void) => {
+        if (insertErr) {
+            console.error('Error inserting artist:', insertErr);
+        }
     });
 });
+
+const query = 'SELECT * FROM artists';
+const artists = db.prepare(query).all();
 
 db.close();
 db.close(err => {
