@@ -44,8 +44,8 @@ const query = `
     CREATE TABLE "product_variation" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "product_id" INTEGER NOT NULL,
-        "size" TEXT NOT NULL,
-        "colour" TEXT NOT NULL,
+        "size" TEXT,
+        "colour" TEXT,
         "price" FLOAT NOT NULL CHECK (price > 0),
         "stock" INTEGER NOT NULL,
         "creation_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
