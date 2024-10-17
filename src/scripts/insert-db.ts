@@ -3,115 +3,115 @@ import fs from "fs";
 
 const db: Database = new DatabaseConstructor("db.sqlite3");
 
-interface Artist {
-  name: string;
-  bio: string;
-  socials: string;
-  image: string;
-}
+// interface Artist {
+//   name: string;
+//   bio: string;
+//   socials: string;
+//   image: string;
+// }
 
-fs.readFile(
-  "data/artists.json",
-  "utf8",
-  (err: NodeJS.ErrnoException | null, data: string) => {
-    if (err) {
-      console.error("Error reading JSON file:", err);
-      return;
-    }
+// fs.readFile(
+//   "data/artists.json",
+//   "utf8",
+//   (err: NodeJS.ErrnoException | null, data: string) => {
+//     if (err) {
+//       console.error("Error reading JSON file:", err);
+//       return;
+//     }
 
-    const artistsData: Artist[] = JSON.parse(data);
+//     const artistsData: Artist[] = JSON.parse(data);
 
-    const insertArtistsData = db.prepare(
-      "INSERT INTO artists (name, bio, socials, image) VALUES (?, ?, ?, ?)"
-    );
+//     const insertArtistsData = db.prepare(
+//       "INSERT INTO artists (name, bio, socials, image) VALUES (?, ?, ?, ?)"
+//     );
 
-    artistsData.forEach((artist) => {
-      try {
-        insertArtistsData.run(
-          artist.name,
-          artist.bio,
-          artist.socials,
-          artist.image
-        );
-      } catch (insertErr) {
-        console.error("Error inserting artist:", insertErr);
-      }
-    });
+//     artistsData.forEach((artist) => {
+//       try {
+//         insertArtistsData.run(
+//           artist.name,
+//           artist.bio,
+//           artist.socials,
+//           artist.image
+//         );
+//       } catch (insertErr) {
+//         console.error("Error inserting artist:", insertErr);
+//       }
+//     });
 
-    db.close();
-  }
-);
+//     db.close();
+//   }
+// );
 
-interface Category {
-  name: string;
-  description: string;
-}
+// interface Category {
+//   name: string;
+//   description: string;
+// }
 
-fs.readFile(
-  "data/categories.json",
-  "utf8",
-  (err: NodeJS.ErrnoException | null, data: string) => {
-    if (err) {
-      console.error("Error reading JSON file:", err);
-      return;
-    }
+// fs.readFile(
+//   "data/categories.json",
+//   "utf8",
+//   (err: NodeJS.ErrnoException | null, data: string) => {
+//     if (err) {
+//       console.error("Error reading JSON file:", err);
+//       return;
+//     }
 
-    const categoriesData: Category[] = JSON.parse(data);
+//     const categoriesData: Category[] = JSON.parse(data);
 
-    const insertCategoriesData = db.prepare(
-      "INSERT INTO categories (name, description) VALUES (?, ?)"
-    );
+//     const insertCategoriesData = db.prepare(
+//       "INSERT INTO categories (name, description) VALUES (?, ?)"
+//     );
 
-    categoriesData.forEach((category) => {
-      try {
-        insertCategoriesData.run(category.name, category.description);
-      } catch (insertErr) {
-        console.error("Error inserting category:", insertErr);
-      }
-    });
+//     categoriesData.forEach((category) => {
+//       try {
+//         insertCategoriesData.run(category.name, category.description);
+//       } catch (insertErr) {
+//         console.error("Error inserting category:", insertErr);
+//       }
+//     });
 
-    db.close();
-  }
-);
+//     db.close();
+//   }
+// );
 
-interface Product {
-  name: string;
-  description: string;
-  artist_id: number;
-  category_id: number;
-}
+// interface Product {
+//   name: string;
+//   description: string;
+//   artist_id: number;
+//   category_id: number;
+// }
 
-fs.readFile(
-  "data/products.json",
-  "utf8",
-  (err: NodeJS.ErrnoException | null, data: string) => {
-    if (err) {
-      console.error("Error reading JSON file:", err);
-      return;
-    }
+// fs.readFile(
+//   "data/products.json",
+//   "utf8",
+//   (err: NodeJS.ErrnoException | null, data: string) => {
+//     if (err) {
+//       console.error("Error reading JSON file:", err);
+//       return;
+//     }
 
-    const productsData: Product[] = JSON.parse(data);
+//     const productsData: Product[] = JSON.parse(data);
 
-    const insertProductsData = db.prepare(
-      "INSERT INTO products (name, description, artist_id, category_id) VALUES (?, ?, ?, ?)"
-    );
+//     const insertProductsData = db.prepare(
+//       "INSERT INTO products (name, description, artist_id, category_id) VALUES (?, ?, ?, ?)"
+//     );
 
-    productsData.forEach((product) => {
-      try {
-        insertProductsData.run(
-          product.name,
-          product.description,
-          product.artist_id,
-          product.category_id
-        );
-      } catch (insertErr) {
-        console.error("Error inserting product:", insertErr);
-      }
-    });
+//     productsData.forEach((product) => {
+//       try {
+//         insertProductsData.run(
+//           product.name,
+//           product.description,
+//           product.artist_id,
+//           product.category_id
+//         );
+//       } catch (insertErr) {
+//         console.error("Error inserting product:", insertErr);
+//       }
+//     });
 
-    db.close();
-  }
-);
+//     db.close();
+//   }
+// );
 
 interface ProductVariation {
   product_id: number;
@@ -154,39 +154,39 @@ fs.readFile(
   }
 );
 
-interface ProductImage {
-  product_id: number;
-  image_url: string;
-  is_main_image: number;
-}
+// interface ProductImage {
+//   product_id: number;
+//   image_url: string;
+//   is_main_image: number;
+// }
 
-fs.readFile(
-  "data/product-images.json",
-  "utf8",
-  (err: NodeJS.ErrnoException | null, data: string) => {
-    if (err) {
-      console.error("Error reading JSON file:", err);
-      return;
-    }
+// fs.readFile(
+//   "data/product-images.json",
+//   "utf8",
+//   (err: NodeJS.ErrnoException | null, data: string) => {
+//     if (err) {
+//       console.error("Error reading JSON file:", err);
+//       return;
+//     }
 
-    const productImageData: ProductImage[] = JSON.parse(data);
+//     const productImageData: ProductImage[] = JSON.parse(data);
 
-    const insertProductImagesData = db.prepare(
-      "INSERT INTO product-images (product_id, image_url, is_main_image) VALUES (?, ?, ?)"
-    );
+//     const insertProductImagesData = db.prepare(
+//       "INSERT INTO product-images (product_id, image_url, is_main_image) VALUES (?, ?, ?)"
+//     );
 
-    productImageData.forEach((productImage) => {
-      try {
-        insertProductImagesData.run(
-          productImage.product_id,
-          productImage.image_url,
-          productImage.is_main_image
-        );
-      } catch (insertErr) {
-        console.error("Error inserting product image:", insertErr);
-      }
-    });
+//     productImageData.forEach((productImage) => {
+//       try {
+//         insertProductImagesData.run(
+//           productImage.product_id,
+//           productImage.image_url,
+//           productImage.is_main_image
+//         );
+//       } catch (insertErr) {
+//         console.error("Error inserting product image:", insertErr);
+//       }
+//     });
 
-    db.close();
-  }
-);
+//     db.close();
+//   }
+// );
