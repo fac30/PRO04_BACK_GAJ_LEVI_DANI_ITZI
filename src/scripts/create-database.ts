@@ -41,7 +41,7 @@ const query = `
         FOREIGN KEY ("product_id") REFERENCES "products" ("id")
     );
 
-    CREATE TABLE IF NOT EXISTS "product_variation" (
+    CREATE TABLE IF NOT EXISTS "product_variations" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "product_id" INTEGER NOT NULL,
         "size" TEXT,
@@ -59,7 +59,7 @@ const query = `
         "creation_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
-    CREATE TABLE IF NOT EXISTS "cart" (
+    CREATE TABLE IF NOT EXISTS "carts" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "user_id" INTEGER NOT NULL,
         "product_variation_id" INTEGER NOT NULL,
@@ -69,7 +69,7 @@ const query = `
         FOREIGN KEY ("product_variation_id") REFERENCES "product_variation" ("id")
     );
 
-    CREATE TABLE IF NOT EXISTS "order_item" (
+    CREATE TABLE IF NOT EXISTS "order_items" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "order_id" INTEGER NOT NULL,
         "product_variation_id" INTEGER NOT NULL,

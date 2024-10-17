@@ -113,55 +113,16 @@ const db: Database = new DatabaseConstructor("db.sqlite3");
 //   }
 // );
 
-interface ProductVariation {
-  product_id: number;
-  size: string;
-  colour: string;
-  price: number;
-  stock: number;
-}
-
-fs.readFile(
-  "data/product-variations.json",
-  "utf8",
-  (err: NodeJS.ErrnoException | null, data: string) => {
-    if (err) {
-      console.error("Error reading JSON file:", err);
-      return;
-    }
-
-    const productVariationData: ProductVariation[] = JSON.parse(data);
-
-    const insertProductVariationsData = db.prepare(
-      "INSERT INTO product-variations (product_id, size, colour, price, stock) VALUES (?, ?, ?, ?, ?)"
-    );
-
-    productVariationData.forEach((productVariation) => {
-      try {
-        insertProductVariationsData.run(
-          productVariation.product_id,
-          productVariation.size,
-          productVariation.colour,
-          productVariation.price,
-          productVariation.stock
-        );
-      } catch (insertErr) {
-        console.error("Error inserting product variation:", insertErr);
-      }
-    });
-
-    db.close();
-  }
-);
-
-// interface ProductImage {
+// interface ProductVariation {
 //   product_id: number;
-//   image_url: string;
-//   is_main_image: number;
+//   size: string;
+//   colour: string;
+//   price: number;
+//   stock: number;
 // }
 
 // fs.readFile(
-//   "data/product-images.json",
+//   "data/product-variations.json",
 //   "utf8",
 //   (err: NodeJS.ErrnoException | null, data: string) => {
 //     if (err) {
@@ -169,24 +130,63 @@ fs.readFile(
 //       return;
 //     }
 
-//     const productImageData: ProductImage[] = JSON.parse(data);
+//     const productVariationData: ProductVariation[] = JSON.parse(data);
 
-//     const insertProductImagesData = db.prepare(
-//       "INSERT INTO product-images (product_id, image_url, is_main_image) VALUES (?, ?, ?)"
+//     const insertProductVariationsData = db.prepare(
+//       "INSERT INTO product_variations (product_id, size, colour, price, stock) VALUES (?, ?, ?, ?, ?)"
 //     );
 
-//     productImageData.forEach((productImage) => {
+//     productVariationData.forEach((productVariation) => {
 //       try {
-//         insertProductImagesData.run(
-//           productImage.product_id,
-//           productImage.image_url,
-//           productImage.is_main_image
+//         insertProductVariationsData.run(
+//           productVariation.product_id,
+//           productVariation.size,
+//           productVariation.colour,
+//           productVariation.price,
+//           productVariation.stock
 //         );
 //       } catch (insertErr) {
-//         console.error("Error inserting product image:", insertErr);
+//         console.error("Error inserting product variation:", insertErr);
 //       }
 //     });
 
 //     db.close();
 //   }
 // );
+
+interface ProductImage {
+  product_id: number;
+  image_url: string;
+  is_main_image: number;
+}
+
+fs.readFile(
+  "data/product-images.json",
+  "utf8",
+  (err: NodeJS.ErrnoException | null, data: string) => {
+    if (err) {
+      console.error("Error reading JSON file:", err);
+      return;
+    }
+
+    const productImageData: ProductImage[] = JSON.parse(data);
+
+    const insertProductImagesData = db.prepare(
+      "INSERT INTO product_images (product_id, image_url, is_main_image) VALUES (?, ?, ?)"
+    );
+
+    productImageData.forEach((productImage) => {
+      try {
+        insertProductImagesData.run(
+          productImage.product_id,
+          productImage.image_url,
+          productImage.is_main_image
+        );
+      } catch (insertErr) {
+        console.error("Error inserting product image:", insertErr);
+      }
+    });
+
+    db.close();
+  }
+);
