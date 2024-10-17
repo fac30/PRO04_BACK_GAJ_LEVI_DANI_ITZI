@@ -3,7 +3,7 @@ import DatabaseConstructor, { Database } from "better-sqlite3";
 export const db: Database = new DatabaseConstructor("db.sqlite3");
 
 const query = `
-    CREATE TABLE "artists" (
+    CREATE TABLE IF NOT EXISTS "artists" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "name" TEXT,
         "bio" TEXT,
@@ -12,7 +12,7 @@ const query = `
         "creation_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
-    CREATE TABLE "users" (
+    CREATE TABLE IF NOT EXISTS "users" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "username" VARCHAR UNIQUE NOT NULL,
         "email" VARCHAR UNIQUE NOT NULL,
@@ -21,7 +21,7 @@ const query = `
         "creation_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
-    CREATE TABLE "products" (
+    CREATE TABLE IF NOT EXISTS "products" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "name" VARCHAR NOT NULL,
         "description" TEXT,
@@ -32,7 +32,7 @@ const query = `
         FOREIGN KEY ("category_id") REFERENCES "categories" ("id")
     );
 
-    CREATE TABLE "product_images" (
+    CREATE TABLE IF NOT EXISTS "product_images" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "product_id" INTEGER NOT NULL,
         "image_url" TEXT NOT NULL,
@@ -41,7 +41,7 @@ const query = `
         FOREIGN KEY ("product_id") REFERENCES "products" ("id")
     );
 
-    CREATE TABLE "product_variation" (
+    CREATE TABLE IF NOT EXISTS "product_variations" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "product_id" INTEGER NOT NULL,
         "size" TEXT,
@@ -52,14 +52,14 @@ const query = `
         FOREIGN KEY ("product_id") REFERENCES "products" ("id")
     );
 
-    CREATE TABLE "categories" (
+    CREATE TABLE IF NOT EXISTS "categories" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-        "name" VARCHAR UNIQUE NOT NULL,
+        "name" TEXT NOT NULL,
         "description" TEXT,
         "creation_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
-    CREATE TABLE "cart" (
+    CREATE TABLE IF NOT EXISTS "carts" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "user_id" INTEGER NOT NULL,
         "product_variation_id" INTEGER NOT NULL,
@@ -69,7 +69,7 @@ const query = `
         FOREIGN KEY ("product_variation_id") REFERENCES "product_variation" ("id")
     );
 
-    CREATE TABLE "order_item" (
+    CREATE TABLE IF NOT EXISTS "order_items" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "order_id" INTEGER NOT NULL,
         "product_variation_id" INTEGER NOT NULL,
@@ -80,7 +80,7 @@ const query = `
         FOREIGN KEY ("product_variation_id") REFERENCES "product_variation" ("id")
     );
 
-    CREATE TABLE "orders" (
+    CREATE TABLE IF NOT EXISTS "orders" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "user_id" INTEGER NOT NULL,
         "shipping_methods_id" INTEGER NOT NULL,
@@ -93,7 +93,7 @@ const query = `
         FOREIGN KEY ("payment_info_id") REFERENCES "payment_info" ("id")
     );
 
-    CREATE TABLE "shipping_methods" (
+    CREATE TABLE IF NOT EXISTS "shipping_methods" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "name" VARCHAR NOT NULL,
         "description" TEXT,
@@ -101,7 +101,7 @@ const query = `
         "creation_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
-    CREATE TABLE "payment_info" (
+    CREATE TABLE IF NOT EXISTS "payment_info" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "order_id" INTEGER NOT NULL,
         "payment_method" TEXT NOT NULL,
@@ -111,7 +111,7 @@ const query = `
         FOREIGN KEY ("order_id") REFERENCES "orders" ("id")
     );
 
-    CREATE TABLE "reviews" (
+    CREATE TABLE IF NOT EXISTS "reviews" (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "user_id" INTEGER NOT NULL,
         "product_id" INTEGER NOT NULL,

@@ -133,7 +133,7 @@ fs.readFile(
     const productVariationData: ProductVariation[] = JSON.parse(data);
 
     const insertProductVariationsData = db.prepare(
-      "INSERT INTO product-variations (product_id, size, colour, price, stock) VALUES (?, ?, ?, ?, ?)"
+      "INSERT INTO product_variations (product_id, size, colour, price, stock) VALUES (?, ?, ?, ?, ?)"
     );
 
     productVariationData.forEach((productVariation) => {
@@ -172,7 +172,7 @@ fs.readFile(
     const productImageData: ProductImage[] = JSON.parse(data);
 
     const insertProductImagesData = db.prepare(
-      "INSERT INTO product-images (product_id, image_url, is_main_image) VALUES (?, ?, ?)"
+      "INSERT INTO product_images (product_id, image_url, is_main_image) VALUES (?, ?, ?)"
     );
 
     productImageData.forEach((productImage) => {
