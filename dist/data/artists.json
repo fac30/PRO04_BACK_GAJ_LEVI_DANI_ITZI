@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Tanya Gurova",
+        "bio": "A software engineer by day and a talented sewer by night, Tanya is based in London, specializing in creating unique clothing pieces that combine traditional mending techniques with vibrant patchwork and intricate embroidery. Her work reflects a commitment to sustainability and artistry, breathing new life into fabric while celebrating the beauty of imperfections. Tanya’s creations not only showcase her craftsmanship but also tell stories of heritage and innovation in fashion.",
+        "socials": "https://instagram.com/gurtati_"
+    },
+    {
+        "name": "Lara Matthews",
+        "bio": "A contemporary illustrator specializing in nature-inspired art, blending bold colors with delicate line work. Lara has exhibited her work across several local galleries.",
+        "socials": "https://instagram.com/laramatthewsart"
+    },
+    {
+        "name": "Diego Alvarez",
+        "bio": "A digital artist known for his vibrant, surreal landscapes that explore the boundaries of imagination. His works have been featured in numerous online art communities.",
+        "socials": "https://twitter.com/diegoalvarezart"
+    },
+    {
+        "name": "Suki Nakamura",
+        "bio": "Suki’s art focuses on minimalistic black-and-white illustrations, often depicting quiet moments of daily life. Her work has gained a following in the modern zen art scene.",
+        "socials": "https://behance.net/sukinakamura"
+    },
+    {
+        "name": "James O'Connell",
+        "bio": "An urban street artist who combines graffiti techniques with abstract expressionism. His large-scale murals can be seen in various cities across the country.",
+        "socials": "https://instagram.com/jamesoconnellart"
+    }
+]

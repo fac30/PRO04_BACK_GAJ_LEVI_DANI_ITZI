@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 
+import artistRoutes from "./routes/artistRoutes";
+
+
 dotenv.config();
 
 const app: Express = express();
@@ -18,8 +21,11 @@ app.listen(port, () => {
 });
 
 
+
 app.use(cors({
   origin: 'http://canvas-collective.s3-website.eu-west-2.amazonaws.com', // Replace with your S3 bucket URL
   methods: 'GET,POST,PUT,DELETE,OPTIONS',
   allowedHeaders: 'Content-Type,Authorization'
 }));
+ 
+app.use("/artists", artistRoutes);

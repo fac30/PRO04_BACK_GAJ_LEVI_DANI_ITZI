@@ -6,13 +6,19 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon --watch src --ext ts --exec ts-node src/index.ts",
+    "db": "ts-node src/scripts/create-database.ts",
+    "data": "ts-node src/scripts/insert-db.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+
     "cors": "^2.8.5",
+    "@types/better-sqlite3": "^7.6.11",
+    "better-sqlite3": "^11.3.0",
+
     "dotenv": "^16.4.5",
     "express": "^4.21.1"
   },

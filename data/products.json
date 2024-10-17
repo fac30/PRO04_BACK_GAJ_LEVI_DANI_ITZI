@@ -1,0 +1,140 @@
+[
+  {
+    "name": "Patchwork Jacket",
+    "description": "A colourful and cozy jacket by Tanya Gurova.",
+    "artist_id": 1,
+    "category_id": 1
+  },
+  {
+    "name": "Pink and Green Jacket",
+    "description": "Autumnal jacket with geometric patterns by Tanya Gurova.",
+    "artist_id": 1,
+    "category_id": 1
+  },
+  {
+    "name": "Embroidered Jacket",
+    "description": "Personal and colourful embroidered jacket, and also reversible by Tanya Gurova.",
+    "artist_id": 1,
+    "category_id": 1
+  },
+  {
+    "name": "Spring floral dress",
+    "description": "Beutiful floral dress, perfect for spring by Tanya Gurova.",
+    "artist_id": 1,
+    "category_id": 1
+  },
+  {
+    "name": "Abstract Cotton T-shirt",
+    "description": "A 100% cotton t-shirt featuring abstract designs by Lara Matthews.",
+    "artist_id": 2,
+    "category_id": 1
+  },
+  {
+    "name": "Geometric Mug",
+    "description": "A ceramic mug with geometric patterns designed by Lara Matthews.",
+    "artist_id": 2,
+    "category_id": 2
+  },
+  {
+    "name": "Minimalist Stationery Set",
+    "description": "A stylish stationery set with minimalist designs from Lara Matthews.",
+    "artist_id": 2,
+    "category_id": 3
+  },
+  {
+    "name": "Floral Phone Case",
+    "description": "A durable phone case featuring floral patterns by Lara Matthews.",
+    "artist_id": 2,
+    "category_id": 4
+  },
+  {
+    "name": "Mountain Landscape Wall Art",
+    "description": "A wall art piece showcasing a beautiful mountain landscape by Lara Matthews.",
+    "artist_id": 2,
+    "category_id": 5
+  },
+  {
+    "name": "Surrealism T-shirt",
+    "description": "A t-shirt with surreal art made with 100% cotton by Diego Alvarez.",
+    "artist_id": 3,
+    "category_id": 1
+  },
+  {
+    "name": "Abstract Nature Mug",
+    "description": "A mug with abstract nature art designed by Diego Alvarez.",
+    "artist_id": 3,
+    "category_id": 2
+  },
+  {
+    "name": "Colorful Phone Case",
+    "description": "A vibrant phone case with colorful patterns designed by Diego Alvarez.",
+    "artist_id": 3,
+    "category_id": 4
+  },
+  {
+    "name": "Cityscape Wall Art",
+    "description": "A modern cityscape illustration on canvas by Diego Alvarez.",
+    "artist_id": 3,
+    "category_id": 5
+  },
+  {
+    "name": "Monochrome Mug",
+    "description": "A sleek monochrome mug with bold designs from Suki Nakamura.",
+    "artist_id": 4,
+    "category_id": 2
+  },
+  {
+    "name": "Art Deco Stationery",
+    "description": "An elegant stationery set with Art Deco elements by Suki Nakamura.",
+    "artist_id": 4,
+    "category_id": 3
+  },
+  {
+    "name": "Space-Themed Phone Case",
+    "description": "A phone case with a cosmic design by Suki Nakamura.",
+    "artist_id": 4,
+    "category_id": 4
+  },
+  {
+    "name": "Sunset T-shirt",
+    "description": "A vibrant t-shirt featuring a sunset design by Suki Nakamura.",
+    "artist_id": 4,
+    "category_id": 1
+  },
+  {
+    "name": "Modern Abstract Wall Art",
+    "description": "A large canvas featuring a modern abstract design by Suki Nakamura.",
+    "artist_id": 4,
+    "category_id": 5
+  },
+  {
+    "name": "Graphic T-shirt",
+    "description": "A 100% cotton graphic t-shirt with bold artwork from Jane O'Connell.",
+    "artist_id": 5,
+    "category_id": 1
+  },
+  {
+    "name": "Creative Mug",
+    "description": "A creatively designed mug featuring unique artwork by Jane O'Connell.",
+    "artist_id": 5,
+    "category_id": 2
+  },
+  {
+    "name": "Artistic Stationery Set",
+    "description": "A stationery set with intricate artwork by Jane O'Connell.",
+    "artist_id": 5,
+    "category_id": 3
+  },
+  {
+    "name": "Custom Phone Case",
+    "description": "A custom-designed phone case by Jane O'Connell.",
+    "artist_id": 5,
+    "category_id": 4
+  },
+  {
+    "name": "Nature Wall Art",
+    "description": "A stunning nature-inspired wall art by Jane O'Connell.",
+    "artist_id": 5,
+    "category_id": 5
+  }
+]
