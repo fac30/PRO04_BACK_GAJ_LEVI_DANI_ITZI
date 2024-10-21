@@ -5,6 +5,7 @@ import cors from "cors";
 
 
 import artistRoutes from "./routes/artistRoutes";
+import productRoutes from "./routes/productRoutes"
 
 
 dotenv.config();
@@ -28,4 +29,5 @@ app.use(cors({
   allowedHeaders: 'Content-Type,Authorization'
 }));
  
-app.use("/artists", artistRoutes);
+app.use("/", artistRoutes);
+app.use("/", productRoutes)
