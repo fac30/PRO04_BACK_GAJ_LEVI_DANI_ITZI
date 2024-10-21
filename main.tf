@@ -1,3 +1,13 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "~> 5.72.1"
+    }
+  }
+}
+
+
 provider "aws" {
   region = var.region
 }
@@ -7,7 +17,14 @@ resource "aws_security_group" "canvas_collective_security" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["86.175.168.210/32"]
+    cidr_blocks = ["86.175.168.210/32", "212.69.43.233/32"]
+  }
+
+  ingress {
+    from_port = 3000
+    to_port = 3000
+    protocol = "tcp"
+    cidr_blocks = ["212.69.43.233/32"]
   }
   egress {
     from_port   = 0
