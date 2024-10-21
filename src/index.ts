@@ -28,6 +28,9 @@ app.use(
   })
 );
 
+const authRouter = require("./routes/auth");
+app.use("/", authRouter);
+
 app.use("/", artistRoutes);
 app.use("/", productRoutes);
 app.use("/", categoriesRoutes);
