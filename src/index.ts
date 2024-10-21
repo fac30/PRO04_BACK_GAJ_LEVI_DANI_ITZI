@@ -3,11 +3,9 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-
 import artistRoutes from "./routes/artistRoutes";
 import productRoutes from "./routes/productRoutes";
 import categoriesRoutes from "./routes/categoriesRoutes";
-
 
 dotenv.config();
 
