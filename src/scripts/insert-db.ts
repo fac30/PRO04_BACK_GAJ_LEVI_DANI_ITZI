@@ -38,7 +38,7 @@ fs.readFile(
       }
     });
 
-    db.close();
+    // db.close();
   }
 );
 
@@ -70,7 +70,7 @@ fs.readFile(
       }
     });
 
-    db.close();
+    // db.close();
   }
 );
 
@@ -109,7 +109,7 @@ fs.readFile(
       }
     });
 
-    db.close();
+    // db.close();
   }
 );
 
@@ -150,7 +150,7 @@ fs.readFile(
       }
     });
 
-    db.close();
+    // db.close();
   }
 );
 
