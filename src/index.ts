@@ -6,6 +6,7 @@ import cors from "cors";
 import artistRoutes from "./routes/artistRoutes";
 import productRoutes from "./routes/productRoutes";
 import categoriesRoutes from "./routes/categoriesRoutes";
+import privateRouter from "./routes/privateRouter";
 
 dotenv.config();
 
