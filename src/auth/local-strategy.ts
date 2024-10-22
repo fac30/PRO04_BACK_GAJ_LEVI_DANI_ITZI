@@ -2,6 +2,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const crypto = require("node:crypto");
 import { db } from "../scripts/create-database";
+import { User } from "../utils/typeBucket";
 
 // passport.use(
 //   new LocalStrategy(function verify(username: string, password: string, cb) {
