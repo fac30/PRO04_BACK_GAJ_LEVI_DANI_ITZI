@@ -1,43 +1,36 @@
-const passport = require("passport");
-const LocalStrategy = require("passport-local");
-const crypto = require("node:crypto");
-import { db } from "../scripts/create-database";
-import { User } from "../utils/typeBucket";
+const passport = require('passport');
+import { Strategy as LocalStrategy } from 'passport-local';
 
-// passport.use(
-//   new LocalStrategy(function verify(username: string, password: string, cb) {
-//     db.get(
-//       "SELECT * FROM users WHERE username = ?",
-//       [username],
-//       function (err, user) {
-//         if (err) {
-//           return cb(err);
-//         }
-//         if (!user) {
-//           return cb(null, false, {
-//             message: "Incorrect username or password.",
-//           });
-//         }
+import { comparePassword } from '../utils/hashUtils';
+import { getUserByEmail } from '../models/userModel';
 
-//         crypto.pbkdf2(
-//           password,
-//           user.salt,
-//           310000,
-//           32,
-//           "sha256",
-//           function (err, hashedPassword) {
-//             if (err) {
-//               return cb(err);
-//             }
-//             if (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
-//               return cb(null, false, {
-//                 message: "Incorrect username or password.",
-//               });
-//             }
-//             return cb(null, user);
-//           }
-//         );
-//       }
-//     );
-//   })
-// );
+passport.use(new LocalStrategy({
+    usernameField: 'email', 
+}, async (email, password, done) => {
+    try {
+        const user = await getUserByEmail(email);
+        if (!user) return done(null, false, { message: 'Incorrect email.' });
+
+        const isMatch = await comparePassword(password, user.hashed_password);
+        if (!isMatch) return done(null, false, { message: 'Incorrect password.' });
+
+        return done(null, user);
+    } catch (err) {
+        return done(err);
+    }
+}));
+
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+    try {
+        const user = await getUserById(id);
+        done(null, user);
+    } catch (err) {
+        done(err);
+    }
+});
+
+export default passport;

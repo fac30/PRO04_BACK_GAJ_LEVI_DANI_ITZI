@@ -6,11 +6,15 @@ import cors from "cors";
 import artistRoutes from "./routes/artistRoutes";
 import productRoutes from "./routes/productRoutes";
 import categoriesRoutes from "./routes/categoriesRoutes";
+import privateRouter from "./routes/privateRouter";
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
+
+import loadJWTStrategy from "./auth/jwt-strategy";
+loadJWTStrategy();
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Canvas Collective");
@@ -28,9 +32,11 @@ app.use(
   })
 );
 
-const authRouter = require("./routes/auth");
-app.use("/", authRouter);
+// const authRouter = require("./routes/auth");
+// app.use("/", authRouter);
 
 app.use("/", artistRoutes);
 app.use("/", productRoutes);
 app.use("/", categoriesRoutes);
+
+app.use("/", privateRouter);
