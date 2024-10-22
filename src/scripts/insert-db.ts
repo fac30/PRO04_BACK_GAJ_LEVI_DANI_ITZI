@@ -1,14 +1,13 @@
 import DatabaseConstructor, { Database } from "better-sqlite3";
 import fs from "fs";
 
-const db: Database = new DatabaseConstructor("db.sqlite3");
+import Artist from "../utils/typeBucket";
+import Category from "../utils/typeBucket";
+import Product from "../utils/typeBucket";
+import ProductVariation from "../utils/typeBucket";
+import ProductImage from "../utils/typeBucket";
 
-interface Artist {
-  name: string;
-  bio: string;
-  socials: string;
-  image: string;
-}
+const db: Database = new DatabaseConstructor("db.sqlite3");
 
 fs.readFile(
   "data/artists.json",
@@ -42,11 +41,6 @@ fs.readFile(
   }
 );
 
-interface Category {
-  name: string;
-  description: string;
-}
-
 fs.readFile(
   "data/categories.json",
   "utf8",
@@ -73,13 +67,6 @@ fs.readFile(
     // db.close();
   }
 );
-
-interface Product {
-  name: string;
-  description: string;
-  artist_id: number;
-  category_id: number;
-}
 
 fs.readFile(
   "data/products.json",
@@ -113,14 +100,6 @@ fs.readFile(
   }
 );
 
-interface ProductVariation {
-  product_id: number;
-  size: string;
-  colour: string;
-  price: number;
-  stock: number;
-}
-
 fs.readFile(
   "data/product-variations.json",
   "utf8",
@@ -153,12 +132,6 @@ fs.readFile(
     // db.close();
   }
 );
-
-interface ProductImage {
-  product_id: number;
-  image_url: string;
-  is_main_image: number;
-}
 
 fs.readFile(
   "data/product-images.json",
