@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "~> 5.72.1"
     }
   }
@@ -21,10 +21,24 @@ resource "aws_security_group" "canvas_collective_security" {
   }
 
   ingress {
-    from_port = 3000
-    to_port = 3000
-    protocol = "tcp"
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
     cidr_blocks = ["212.69.43.233/32"]
+  }
+
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
   egress {
     from_port   = 0
@@ -33,32 +47,15 @@ resource "aws_security_group" "canvas_collective_security" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  egress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  egress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-   egress {
-    from_port   = 53
-    to_port     = 53
-    protocol    = "udp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
   tags = {
     Name = var.aws_security_group_name
   }
 }
 resource "aws_instance" "canvas_collective" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-  key_name      = "canvas_collective"
+  ami                         = var.ami_id
+  instance_type               = var.instance_type
+  key_name                    = "canvas_collective"
+  associate_public_ip_address = true
   tags = {
     Name = var.aws_instance
   }

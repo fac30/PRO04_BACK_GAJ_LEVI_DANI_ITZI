@@ -15,5 +15,5 @@ variable "aws_security_group_name" {
 }
 
 variable "aws_instance" {
-    default = "canvas_collective"
+  default = "canvas_collective"
 }
