@@ -1,11 +1,11 @@
 import DatabaseConstructor, { Database } from "better-sqlite3";
 import fs from "fs";
 
-import Artist from "../utils/typeBucket";
-import Category from "../utils/typeBucket";
-import Product from "../utils/typeBucket";
-import ProductVariation from "../utils/typeBucket";
-import ProductImage from "../utils/typeBucket";
+import { Artist } from "../utils/typeBucket";
+import { Category } from "../utils/typeBucket";
+import { Product } from "../utils/typeBucket";
+import { ProductVariation } from "../utils/typeBucket";
+import { ProductImage } from "../utils/typeBucket";
 
 const db: Database = new DatabaseConstructor("db.sqlite3");
 
