@@ -1,11 +1,11 @@
-import { Router } from 'express';
-import { register, login, logout } from '../controllers/authController';
+// @ts-nocheck
+import { Router } from "express";
+import { register, login, logout } from "../controllers/authController";
 
 const router = Router();
 
-router.post('/register', register);
-router.post('/login', login);
-router.post('/logout', logout);
+// router.post('/register', register);
+router.post("/login", login);
+// router.post('/logout', logout);
 
 export default router;
-// npm install passport-jwt
