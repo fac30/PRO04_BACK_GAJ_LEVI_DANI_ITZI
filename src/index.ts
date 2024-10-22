@@ -5,6 +5,8 @@ import cors from "cors";
 
 
 import artistRoutes from "./routes/artistRoutes";
+import productRoutes from "./routes/productRoutes"
+import categoriesRoutes from './routes/categoriesRoutes'
 
 
 dotenv.config();
@@ -12,12 +14,12 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Canvas Collective");
+app.get('/', (req: Request, res: Response) => {
+	res.send('Canvas Collective');
 });
 
 app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+	console.log(`[server]: Server is running at http://localhost:${port}`);
 });
 
 
@@ -28,4 +30,6 @@ app.use(cors({
   allowedHeaders: 'Content-Type,Authorization'
 }));
  
-app.use("/artists", artistRoutes);
+app.use("/", artistRoutes);
+app.use("/", productRoutes)
+app.use('/', categoriesRoutes);
