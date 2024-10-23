@@ -1,7 +1,11 @@
 // @ts-nocheck
 import { Request, Response } from "express";
 import { hashPassword } from "../utils/hashUtils";
-import { createUser, getUserByEmail } from "../models/userModel";
+import {
+  createUser,
+  getUserByEmail,
+  getUserByUsername,
+} from "../models/userModel";
 
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -9,21 +13,24 @@ import { User } from "../utils/typeBucket";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// Register a new user
 export const register = async (req: Request, res: Response) => {
-  const { username, email, password, address } = req.body;
+  const { username, email, password } = req.body;
   try {
-    const existingUser = await getUserByEmail(email);
-    if (existingUser)
+    const existingEmail = await getUserByEmail(email);
+    if (existingEmail)
       return res.status(400).json({ message: "Email already exists" });
+
+    const existingUsername = await getUserByUsername(username);
+    if (existingUsername)
+      return res.status(400).json({ message: "Usernames already exists" });
 
     const hashedPassword = await hashPassword(password);
     await createUser({
       username,
       email,
       hashed_password: hashedPassword,
-      address,
     });
+
     res.status(201).json({ message: "User registered successfully" });
   } catch (err) {
     res.status(500).json({ message: "Error registering user" });
