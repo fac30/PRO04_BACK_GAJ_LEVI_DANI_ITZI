@@ -8,7 +8,7 @@ router.post(
   "/private/",
   passport.authenticate("jwt", { session: false }),
   (req: Request, res: Response) => {
-    res.json({ oh: "now" });
+    res.json({ message: "Access granted to private route" });
   }
 );
 

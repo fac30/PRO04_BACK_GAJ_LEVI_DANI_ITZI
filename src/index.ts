@@ -25,6 +25,9 @@ app.get('/', (req: Request, res: Response) => {
 	res.send('Canvas Collective');
 });
 
++app.use("/", authRouter);
++app.use("/", privateRouter);
+
 app.use("/", artistRoutes);
 app.use("/", productRoutes)
 app.use('/', categoriesRoutes);
