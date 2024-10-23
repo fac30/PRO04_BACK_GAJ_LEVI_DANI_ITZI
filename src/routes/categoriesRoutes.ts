@@ -1,8 +1,8 @@
-import { Router } from 'express';
-import { getCategoryId } from '../controllers/catogoriesController'
+import { Router } from "express";
+import { getCategoryId } from "../controllers/catogoriesController";
 
 const router = Router();
 
-router.use("/category/:id", getCategoryId)
+router.use("/category/:id", getCategoryId);
 
-export default router
+export default router;
