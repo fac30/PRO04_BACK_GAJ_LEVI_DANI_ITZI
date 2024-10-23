@@ -17,7 +17,7 @@ const query = `
         "username" VARCHAR UNIQUE NOT NULL,
         "email" VARCHAR UNIQUE NOT NULL,
         "hashed_password" TEXT NOT NULL,
-        "address" TEXT NOT NULL,
+        "address" TEXT,
         "creation_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
