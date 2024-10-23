@@ -5,7 +5,7 @@ TOKEN=$(echo $RESPONSE | jq -r .token)
 
 echo $TOKEN
 
-echo -e "Primera request"
+echo -e "First request"
 curl -X POST http://localhost:3000/private
 
 echo -e "Second request"
