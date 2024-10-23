@@ -3,13 +3,6 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
-<<<<<<< HEAD
-import artistRoutes from "./routes/artistRoutes";
-import productRoutes from "./routes/productRoutes";
-import categoriesRoutes from "./routes/categoriesRoutes";
-
-dotenv.config();
-=======
 import cors from "cors";
 
 import artistRoutes from "./routes/artistRoutes";
@@ -17,7 +10,6 @@ import productRoutes from "./routes/productRoutes";
 import categoriesRoutes from "./routes/categoriesRoutes";
 import privateRouter from "./routes/privateRouter";
 import authRouter from "./routes/authRoutes";
->>>>>>> 2baf82f48d5e04364704064b20b1ceb57968c919
 
 const app: Express = express();
 app.use(express.json());
@@ -49,9 +41,5 @@ app.use("/", productRoutes);
 app.use("/", categoriesRoutes);
 
 app.listen(port, () => {
-<<<<<<< HEAD
   console.log(`[server]: Server is running at http://localhost:${port}`);
-=======
-	console.log(`[server]: Server is running at http://localhost:${port}`);
->>>>>>> 2baf82f48d5e04364704064b20b1ceb57968c919
 });
