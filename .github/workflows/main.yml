@@ -1,4 +1,4 @@
-name: Deploy to EC2.
+name: Deploy to EC2
 
 on:
   push:
@@ -29,7 +29,18 @@ jobs:
       run: |
         echo "$PRIVATE_KEY" > canvas_collective.pem
         chmod 400 "canvas_collective.pem"
-        ssh -i "canvas_collective.pem" $USER@$HOST << 'EOF'
+        if [ ! -d ~/.ssh ]; then
+          mkdir ~/.ssh
+          chmod 700 ~/.ssh
+        fi
+        if [ ! -f ~/.ssh/known_hosts ]; then
+          touch ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+        fi
+        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+        echo "Host: $HOST"
+        echo "User: $USER"
+        ssh -T -i "canvas_collective.pem" $USER@$HOST << 'EOF'
         cd PRO04_BACK_GAJ_LEVI_DANI_ITZI
         git pull origin main 
         npm install
