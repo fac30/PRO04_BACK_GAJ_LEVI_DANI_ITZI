@@ -29,5 +29,16 @@ jobs:
       run: |
         echo "$PRIVATE_KEY" > canvas_collective.pem
         chmod 400 "canvas_collective.pem"
-        git pull 
-        ssh -i "canvas_collective.pem" ec2-user@ec2-18-175-117-214.eu-west-2.compute.amazonaws.com
+        ssh -i "canvas_collective.pem" $USER@$HOST << 'EOF'
+        cd PRO04_BACK_GAJ_LEVI_DANI_ITZI
+        git pull origin main 
+        npm install
+        pm2 restart all
+        EOF
+        rm canvas_collective.pem
+
+    - name: Cleanup
+      if: always()
+      run:
+        rm -f canvas_collective.pem
+
