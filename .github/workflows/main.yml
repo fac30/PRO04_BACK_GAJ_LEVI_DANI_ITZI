@@ -1,1 +1,44 @@
-test
+name: Deploy to EC2.
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install dependencies and build the project
+      run: npm install && npm run build 
+
+    - name: Deploy to EC2
+      env:
+        PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
+        HOST: ${{ secrets.EC2_HOST }}
+        USER: ${{ secrets.EC2_USER }}
+      run: |
+        echo "$PRIVATE_KEY" > canvas_collective.pem
+        chmod 400 "canvas_collective.pem"
+        ssh -i "canvas_collective.pem" $USER@$HOST << 'EOF'
+        cd PRO04_BACK_GAJ_LEVI_DANI_ITZI
+        git pull origin main 
+        npm install
+        pm2 restart all
+        EOF
+        rm canvas_collective.pem
+
+    - name: Cleanup
+      if: always()
+      run:
+        rm -f canvas_collective.pem
+
