@@ -29,6 +29,7 @@ jobs:
       run: |
         echo "$PRIVATE_KEY" > canvas_collective.pem
         chmod 400 "canvas_collective.pem"
+        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
         echo "Host: $HOST"
         echo "User: $USER"
         ssh -T -i "canvas_collective.pem" $USER@$HOST << 'EOF'
