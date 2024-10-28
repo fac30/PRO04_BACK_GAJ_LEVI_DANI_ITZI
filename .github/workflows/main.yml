@@ -29,22 +29,52 @@ jobs:
       run: |
         echo "Creating SSH key file..."
         echo "$PRIVATE_KEY" > canvas_collective.pem
+        if [ $? -ne 0 ]; then
+          echo "Failed to create SSH key file"
+          exit 1
+        fi
+
+        echo "Setting permissions for SSH key file..."
         chmod 400 canvas_collective.pem
+        if [ $? -ne 0 ]; then
+          echo "Failed to set permissions for SSH key file"
+          exit 1
+        fi
 
         echo "Setting up SSH directory..."
         if [ ! -d ~/.ssh ]; then
           mkdir ~/.ssh
+          if [ $? -ne 0 ]; then
+            echo "Failed to create SSH directory"
+            exit 1
+          fi
           chmod 700 ~/.ssh
+          if [ $? -ne 0 ]; then
+            echo "Failed to set permissions for SSH directory"
+            exit 1
+          fi
         fi
 
         echo "Setting up known_hosts file..."
         if [ ! -f ~/.ssh/known_hosts ]; then
           touch ~/.ssh/known_hosts
+          if [ $? -ne 0 ]; then
+            echo "Failed to create known_hosts file"
+            exit 1
+          fi
           chmod 644 ~/.ssh/known_hosts
+          if [ $? -ne 0 ]; then
+            echo "Failed to set permissions for known_hosts file"
+            exit 1
+          fi
         fi
 
         echo "Adding host to known_hosts..."
         ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+        if [ $? -ne 0 ]; then
+          echo "Failed to add host to known_hosts"
+          exit 1
+        fi
 
         echo "Host: $HOST"
         echo "User: $USER"
