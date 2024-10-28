@@ -21,26 +21,52 @@ jobs:
       run: |
         echo "Creating SSH key file..."
         echo "$PRIVATE_KEY" > canvas_collective.pem
+        if [ $? -ne 0 ]; then
+          echo "Failed to create SSH key file"
+          exit 1
+        fi
+
+        echo "Setting permissions for SSH key file..."
         chmod 400 canvas_collective.pem
+        if [ $? -ne 0 ]; then
+          echo "Failed to set permissions for SSH key file"
+          exit 1
+        fi
 
         echo "Setting up SSH directory..."
         if [ ! -d ~/.ssh ]; then
           mkdir ~/.ssh
+          if [ $? -ne 0 ]; then
+            echo "Failed to create SSH directory"
+            exit 1
+          fi
           chmod 700 ~/.ssh
+          if [ $? -ne 0 ]; then
+            echo "Failed to set permissions for SSH directory"
+            exit 1
+          fi
         fi
 
         echo "Setting up known_hosts file..."
         if [ ! -f ~/.ssh/known_hosts ]; then
           touch ~/.ssh/known_hosts
+          if [ $? -ne 0 ]; then
+            echo "Failed to create known_hosts file"
+            exit 1
+          fi
           chmod 644 ~/.ssh/known_hosts
+          if [ $? -ne 0 ]; then
+            echo "Failed to set permissions for known_hosts file"
+            exit 1
+          fi
         fi
 
-         echo "Checking if host is already in known_hosts..."
+        echo "Checking if host is already in known_hosts..."
         if grep -q "$HOST" ~/.ssh/known_hosts; then
           echo "Host already in known_hosts"
         else
           echo "Adding host to known_hosts..."
-          ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+          ssh-keyscan -H -v $HOST >> ~/.ssh/known_hosts
           if [ $? -ne 0 ]; then
             echo "Failed to add host to known_hosts"
             exit 1
@@ -50,22 +76,54 @@ jobs:
         echo "Host: $HOST"
         echo "User: $USER"
 
+        echo "Testing SSH connection..."
+        ssh -T -i canvas_collective.pem $USER@$HOST
+        if [ $? -ne 0 ]; then
+          echo "Failed to establish SSH connection"
+          exit 1
+        fi
+
         echo "Connecting to EC2 instance..."
-        ssh -i canvas_collective.pem $USER@$HOST << 'EOF'
+        ssh -T -i canvas_collective.pem $USER@$HOST << 'EOF'
         echo "Changing directory to PRO04_BACK_GAJ_LEVI_DANI_ITZI..."
-        cd PRO04_BACK_GAJ_LEVI_DANI_ITZI || { echo "Directory not found"; exit 1; }
+        if cd PRO04_BACK_GAJ_LEVI_DANI_ITZI; then
+          echo "Directory changed successfully."
+        else
+          echo "Directory not found or permission denied."
+          exit 1
+        fi
 
         echo "Pulling latest changes from Git..."
-        git pull || { echo "Git pull failed"; exit 1; }
+        if git pull; then
+          echo "Git pull successful."
+        else
+          echo "Git pull failed."
+          exit 1
+        fi
 
         echo "Installing dependencies..."
-        npm install || { echo "npm install failed"; exit 1; }
+        if npm install; then
+          echo "npm install successful."
+        else
+          echo "npm install failed."
+          exit 1
+        fi
 
         echo "Changing directory to dist..."
-        cd ./dist || { echo "Directory not found"; exit 1; }
+        if cd ./dist; then
+          echo "Directory changed successfully."
+        else
+          echo "Directory not found or permission denied."
+          exit 1
+        fi
 
         echo "Restarting PM2 process..."
-        pm2 restart 0 || { echo "PM2 restart failed"; exit 1; }
+        if pm2 restart 0; then
+          echo "PM2 restart successful."
+        else
+          echo "PM2 restart failed."
+          exit 1
+        fi
         EOF
 
         echo "Cleaning up SSH key file..."
