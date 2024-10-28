@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - main
+      - automate
 
 jobs:
   deploy:
@@ -44,7 +44,8 @@ jobs:
         cd PRO04_BACK_GAJ_LEVI_DANI_ITZI
         git pull origin main 
         npm install
-        pm2 restart all
+        cd dist
+        pm2 restart 0
         EOF
         rm canvas_collective.pem
 
