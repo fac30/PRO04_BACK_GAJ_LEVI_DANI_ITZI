@@ -35,8 +35,17 @@ jobs:
           chmod 644 ~/.ssh/known_hosts
         fi
 
-        echo "Adding host to known_hosts..."
-        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+         echo "Checking if host is already in known_hosts..."
+        if grep -q "$HOST" ~/.ssh/known_hosts; then
+          echo "Host already in known_hosts"
+        else
+          echo "Adding host to known_hosts..."
+          ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+          if [ $? -ne 0 ]; then
+            echo "Failed to add host to known_hosts"
+            exit 1
+          fi
+        fi
 
         echo "Host: $HOST"
         echo "User: $USER"
