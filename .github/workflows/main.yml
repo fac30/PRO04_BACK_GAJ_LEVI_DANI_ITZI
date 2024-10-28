@@ -45,59 +45,9 @@ jobs:
 
         echo "Adding host to known_hosts..."
         ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
-        if [ $? -ne 0 ]; then
-          echo "Failed to add host to known_hosts"
-          exit 1
-        fi
 
         echo "Host: $HOST"
         echo "User: $USER"
-
-        echo "Connecting to EC2 instance..."
-        ssh -v -T -i canvas_collective.pem $USER@$HOST << 'EOF'
-        echo "Changing directory to PRO04_BACK_GAJ_LEVI_DANI_ITZI..."
-        if cd PRO04_BACK_GAJ_LEVI_DANI_ITZI; then
-          echo "Directory changed successfully."
-        else
-          echo "Directory not found or permission denied."
-          exit 1
-        fi
-
-        echo "Pulling latest changes from Git..."
-        if git pull; then
-          echo "Git pull successful."
-        else
-          echo "Git pull failed."
-          exit 1
-        fi
-
-        echo "Installing dependencies..."
-        if npm install; then
-          echo "npm install successful."
-        else
-          echo "npm install failed."
-          exit 1
-        fi
-
-        echo "Changing directory to dist..."
-        if cd dist; then
-          echo "Directory changed successfully."
-        else
-          echo "Directory not found or permission denied."
-          exit 1
-        fi
-
-        echo "Restarting PM2 process..."
-        if pm2 restart 0; then
-          echo "PM2 restart successful."
-        else
-          echo "PM2 restart failed."
-          exit 1
-        fi
-        EOF
-
-        echo "Cleaning up SSH key file..."
-        rm canvas_collective.pem
 
     - name: Cleanup
       if: always()
