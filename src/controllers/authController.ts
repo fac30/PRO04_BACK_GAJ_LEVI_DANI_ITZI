@@ -42,27 +42,20 @@ export const login = async (req: Request, res: Response) => {
 
   try {
     const user: User = getUserByEmail(email);
-
     if (!user) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
-    const isMatch = await bcrypt.compare(password, user.hashed_password);
 
+    const isMatch = await bcrypt.compare(password, user.hashed_password);
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    const token = jwt.sign(
-      {
-        email: user.email,
-      },
-      JWT_SECRET,
-      {
-        expiresIn: "1h",
-        issuer: process.env.JWT_ISSUER,
-        audience: process.env.JWT_AUDIENCE,
-      }
-    );
+    const token = jwt.sign({ email: user.email }, JWT_SECRET, {
+      expiresIn: "1h",
+      issuer: process.env.JWT_ISSUER,
+      audience: process.env.JWT_AUDIENCE,
+    });
 
     res.status(200).json({ token });
   } catch (error) {

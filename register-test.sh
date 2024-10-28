@@ -5,5 +5,5 @@ curl -X POST http://localhost:3000/register \
   -d '{
     "username": "testuser",
     "email": "testuser@example.com",
-    "password": "securepassword"
+    "password": "secure123456"
   }'
