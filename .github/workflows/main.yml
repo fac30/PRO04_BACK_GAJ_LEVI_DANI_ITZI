@@ -40,9 +40,9 @@ jobs:
         ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
         echo "Host: $HOST"
         echo "User: $USER"
-        ssh -T -i "canvas_collective.pem" $USER@$HOST << 'EOF'
+        ssh -v -T -i "canvas_collective.pem" $USER@$HOST << 'EOF'
         cd PRO04_BACK_GAJ_LEVI_DANI_ITZI
-        git pull origin main 
+        git pull  
         npm install
         cd dist
         pm2 restart 0
