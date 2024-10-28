@@ -56,7 +56,7 @@ jobs:
         cd dist || { echo "Directory not found"; exit 1; }
 
         echo "Restarting PM2 process..."
-        pm2 restart 0 || { echo "PM2 restart failed"; exit 1; }
+        pm2 restart index.js || { echo "PM2 restart failed"; exit 1; }
         EOF
 
         echo "Cleaning up SSH key file..."
