@@ -3,7 +3,7 @@ name: Deploy to EC2.
 on:
   push:
     branches:
-      - main
+      - automate
 
 jobs:
   deploy:
@@ -75,13 +75,6 @@ jobs:
 
         echo "Host: $HOST"
         echo "User: $USER"
-
-        echo "Testing SSH connection..."
-        ssh -T -i canvas_collective.pem $USER@$HOST
-        if [ $? -ne 0 ]; then
-          echo "Failed to establish SSH connection"
-          exit 1
-        fi
 
         echo "Connecting to EC2 instance..."
         ssh -T -i canvas_collective.pem $USER@$HOST << 'EOF'
