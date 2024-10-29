@@ -117,7 +117,7 @@ jobs:
           exit 1
         fi
 
-         echo "Managing PM2 process..."
+        echo "Managing PM2 process..."
         if pm2 list | grep -q 'index.js'; then
           echo "PM2 process is running. Restarting..."
           if pm2 restart 0; then
@@ -127,8 +127,8 @@ jobs:
             exit 1
           fi
         else
-          echo "PM2 process starting..."
-          if pm2 start index.js -f; then
+          echo "PM2 process is not running. Starting..."
+          if pm2 start index.js; then
             echo "PM2 start successful."
           else
             echo "PM2 start failed."
@@ -136,7 +136,6 @@ jobs:
           fi
         fi
         EOF
-
 
         echo "Cleaning up SSH key file..."
         rm canvas_collective.pem
