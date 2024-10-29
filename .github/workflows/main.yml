@@ -117,12 +117,23 @@ jobs:
           exit 1
         fi
 
-        echo "Restarting PM2 process..."
+         echo "Managing PM2 process..."
+        if pm2 list | grep -q 'index.js'; then
+        echo "PM2 process is running. Restarting..."
         if pm2 restart 0; then
           echo "PM2 restart successful."
         else
           echo "PM2 restart failed."
           exit 1
+        fi
+        else 
+        echo "PM2 process starting..."
+        if pm2 start /PRO04_BACK_GAJ_LEVI_DANI_ITZI/dist/index.js; then
+          echo "PM2 start successful."
+        else
+          echo "PM2 start failed."
+          exit 1
+        fi
         fi
         EOF
 
