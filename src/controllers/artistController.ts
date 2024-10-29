@@ -3,7 +3,7 @@ import { db } from "../scripts/create-database";
 
 export const getAllArtists = (req: Request, res: Response) => {
   //get all the endpoints from
-  const stmt = db.prepare("SELECT name, id FROM artists");
+  const stmt = db.prepare("SELECT * FROM artists");
   const artists = stmt.all();
   res.json(artists);
 };

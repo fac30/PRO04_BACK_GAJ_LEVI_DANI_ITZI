@@ -10,6 +10,10 @@ import productRoutes from "./routes/productRoutes";
 import categoriesRoutes from "./routes/categoriesRoutes";
 import privateRouter from "./routes/privateRouter";
 import authRouter from "./routes/authRoutes";
+import {
+  getProductImage,
+  getProductImageId,
+} from "./controllers/productImageController";
 
 const app: Express = express();
 app.use(express.json());
@@ -33,12 +37,14 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Canvas Collective");
 });
 
-+app.use("/", authRouter);
-+app.use("/", privateRouter);
+app.use("/", authRouter);
+app.use("/", privateRouter);
 
 app.use("/", artistRoutes);
 app.use("/", productRoutes);
 app.use("/", categoriesRoutes);
+app.use("/", getProductImage);
+app.use("/", getProductImageId);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
