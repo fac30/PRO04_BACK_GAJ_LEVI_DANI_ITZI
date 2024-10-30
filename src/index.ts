@@ -17,6 +17,8 @@ import {
 
 const app: Express = express();
 app.use(express.json());
+app.use("/static", express.static("public"));
+
 const port = process.env.PORT || 3000;
 
 app.use(
@@ -44,7 +46,7 @@ app.use("/", artistRoutes);
 app.use("/", productRoutes);
 app.use("/", categoriesRoutes);
 app.use("/", getProductImage);
-app.use("/", getProductImageId);
+// app.use("/", getProductImageId);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
