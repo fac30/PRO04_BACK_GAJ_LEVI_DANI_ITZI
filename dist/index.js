@@ -14,6 +14,6 @@ app.get("/", (req, res) => {
     res.send("Canvas Collective");
 });
 app.listen(port, '0.0.0.0', () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
+    console.log(`[server]: Server is running at http://18.171.123.115:${port}`);
 });
 app.use("/artists", artistRoutes_1.default);
