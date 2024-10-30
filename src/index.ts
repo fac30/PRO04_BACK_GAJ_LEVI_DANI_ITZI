@@ -6,14 +6,11 @@ dotenv.config();
 import cors from "cors";
 
 import artistRoutes from "./routes/artistRoutes";
-import productRoutes from "./routes/productRoutes";
 import categoriesRoutes from "./routes/categoriesRoutes";
 import privateRouter from "./routes/privateRouter";
 import authRouter from "./routes/authRoutes";
-import {
-  getProductImage,
-  getProductImageId,
-} from "./controllers/productImageController";
+import productImagesRoutes from "./routes/productImagesRoutes";
+import productRoutes from "./routes/productRoutes";
 
 const app: Express = express();
 app.use(express.json());
@@ -45,8 +42,8 @@ app.use("/", privateRouter);
 app.use("/", artistRoutes);
 app.use("/", productRoutes);
 app.use("/", categoriesRoutes);
-app.use("/", getProductImage);
-// app.use("/", getProductImageId);
+app.use("/", productImagesRoutes);
+app.use("/", productRoutes);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
