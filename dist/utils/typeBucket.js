@@ -1,2 +1,2 @@
 "use strict";
-//Type OR Interface Exported From here.
+Object.defineProperty(exports, "__esModule", { value: true });

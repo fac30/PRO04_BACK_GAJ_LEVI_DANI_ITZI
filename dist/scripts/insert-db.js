@@ -21,7 +21,7 @@ fs_1.default.readFile("data/artists.json", "utf8", (err, data) => {
             console.error("Error inserting artist:", insertErr);
         }
     });
-    db.close();
+    // db.close();
 });
 fs_1.default.readFile("data/categories.json", "utf8", (err, data) => {
     if (err) {
@@ -38,7 +38,7 @@ fs_1.default.readFile("data/categories.json", "utf8", (err, data) => {
             console.error("Error inserting category:", insertErr);
         }
     });
-    db.close();
+    // db.close();
 });
 fs_1.default.readFile("data/products.json", "utf8", (err, data) => {
     if (err) {
@@ -55,7 +55,7 @@ fs_1.default.readFile("data/products.json", "utf8", (err, data) => {
             console.error("Error inserting product:", insertErr);
         }
     });
-    db.close();
+    // db.close();
 });
 fs_1.default.readFile("data/product-variations.json", "utf8", (err, data) => {
     if (err) {
@@ -72,7 +72,7 @@ fs_1.default.readFile("data/product-variations.json", "utf8", (err, data) => {
             console.error("Error inserting product variation:", insertErr);
         }
     });
-    db.close();
+    // db.close();
 });
 fs_1.default.readFile("data/product-images.json", "utf8", (err, data) => {
     if (err) {
