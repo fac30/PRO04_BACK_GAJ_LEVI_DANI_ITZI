@@ -35,5 +35,5 @@ app.use("/", artistRoutes_1.default);
 app.use("/", productRoutes_1.default);
 app.use("/", categoriesRoutes_1.default);
 app.listen(port, () => {
-    console.log(`[server]: Server is running at http://18.171.123.115:${port}`);
+    console.log(`[server]: Server is running at http://18.171.123.115/:${port}`);
 });
