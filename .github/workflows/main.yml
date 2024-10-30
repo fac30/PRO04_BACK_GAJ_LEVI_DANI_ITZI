@@ -3,7 +3,8 @@ name: Deploy to EC2.
 on:
   push:
     branches:
-      - automate
+      - main
+
 
 jobs:
   deploy:
