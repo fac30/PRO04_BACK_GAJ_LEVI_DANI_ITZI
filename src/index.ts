@@ -1,5 +1,6 @@
 // src/index.ts
 import express, { Express, Request, Response } from "express";
+import path from "path";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -14,7 +15,7 @@ import productRoutes from "./routes/productRoutes";
 
 const app: Express = express();
 app.use(express.json());
-app.use("/static", express.static("public"));
+app.use('/static', express.static(path.join(__dirname, 'public')))
 
 const port = process.env.PORT || 3000;
 
