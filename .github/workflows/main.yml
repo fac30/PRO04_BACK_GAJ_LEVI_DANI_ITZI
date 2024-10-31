@@ -104,6 +104,7 @@ jobs:
 
         echo "Changing directory to dist..."
         if cd ./dist; then
+          ln -s ../public/ .
           echo "Directory changed successfully."
         else
           echo "Directory not found or permission denied."
