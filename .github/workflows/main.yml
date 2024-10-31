@@ -1,9 +1,9 @@
-name: Deploy to EC2.
+name: Deploy to EC2..
 
 on:
   push:
     branches:
-      - automation
+      - main
 
 jobs:
   deploy:
@@ -129,7 +129,6 @@ jobs:
           fi
         fi
         EOF
-
 
         echo "Cleaning up SSH key file..."
         rm canvas_collective.pem
