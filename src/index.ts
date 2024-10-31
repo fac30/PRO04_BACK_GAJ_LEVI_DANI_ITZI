@@ -46,5 +46,5 @@ app.use("/", productImagesRoutes);
 app.use("/", productRoutes);
 
 app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+  console.log(`[server]: Server is running at http://18.171.123.115:${port}`);
 });
