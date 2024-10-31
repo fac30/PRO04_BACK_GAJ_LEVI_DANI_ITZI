@@ -6,13 +6,16 @@ dotenv.config();
 import cors from "cors";
 
 import artistRoutes from "./routes/artistRoutes";
-import productRoutes from "./routes/productRoutes";
 import categoriesRoutes from "./routes/categoriesRoutes";
 import privateRouter from "./routes/privateRouter";
 import authRouter from "./routes/authRoutes";
+import productImagesRoutes from "./routes/productImagesRoutes";
+import productRoutes from "./routes/productRoutes";
 
 const app: Express = express();
 app.use(express.json());
+app.use("/static", express.static("public"));
+
 const port = process.env.PORT || 3000;
 
 app.use(
@@ -33,12 +36,14 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Canvas Collective");
 });
 
-+app.use("/", authRouter);
-+app.use("/", privateRouter);
+app.use("/", authRouter);
+app.use("/", privateRouter);
 
 app.use("/", artistRoutes);
 app.use("/", productRoutes);
 app.use("/", categoriesRoutes);
+app.use("/", productImagesRoutes);
+app.use("/", productRoutes);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
