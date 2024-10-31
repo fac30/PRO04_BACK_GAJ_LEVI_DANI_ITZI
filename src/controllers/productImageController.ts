@@ -8,7 +8,7 @@ export const getProductImage = (req: Request, res: Response) => {
     const stmt = db.prepare("SELECT * FROM product_images");
     let productImages = stmt.all();
     productImages = productImages.map((pi: any) => {
-      pi.image_url = `http://localhost:3000/static/${pi.image_url}`;
+      pi.image_url = `http://8.171.123.115:3000/static/${pi.image_url}`;
       return pi;
     });
     res.json(productImages);
