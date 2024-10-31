@@ -10,7 +10,7 @@ export const getProductImage = (req: Request, res: Response) => {
     productImages = productImages.map((pi: any) => {
       pi.image_url = `http://18.171.123.115:3000/static/${pi.image_url}`;
       console.log(pi);
-      return pi;
+        return pi;
     });
     res.json(productImages);
   } catch (error) {
